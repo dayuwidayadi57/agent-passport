@@ -78,7 +78,11 @@ export async function startPairing() {
     qrCodeUrl,
     qrCodeId,
     expireAt: Number(expireAt),
-    urlForWeb: `https://web3.binance.com/en/agent-login?expireAt=${expireAt}&url=${encodeURIComponent(qrCodeUrl)}`,
+    /* The official CLI opens qrCodeUrl itself in the browser — there is no
+       separate agent-login URL in the shipped protocol. An earlier build
+       fabricated a web3.binance.com/en/agent-login?... URL from a doc
+       example; Binance's page rejected it ("invalid code"). Use qrCodeUrl. */
+    urlForWeb: qrCodeUrl,
   };
 }
 
