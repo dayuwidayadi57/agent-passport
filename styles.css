@@ -129,4 +129,8 @@ footer .fine{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color
 .promptbox{margin-top:14px;background:#0a0a10;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
   font-family:var(--mono);font-size:12.8px;line-height:1.65;color:var(--ink);word-break:break-word}
 .copyrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.qrrow{display:flex;gap:20px;align-items:flex-start;margin-top:16px;flex-wrap:wrap}
+.qrcard{background:#fff;border-radius:14px;padding:12px 12px 9px;text-align:center;flex:none;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.qrcard img{width:158px;height:158px;display:block}
+.qrcard .qrcap{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:#333;margin-top:8px}
 @media (max-width:640px){.dapp{padding:21px}.passcard{padding:19px 17px 0}.mrz{margin:19px -17px 0;padding:11px 17px 13px}.hero{padding-top:38px}}
