@@ -191,6 +191,23 @@ function render() {
     </form>
     <div class="status" id="status">Tip: open this page in the Binance Wallet browser to connect your Agentic Wallet directly.</div>
     <div class="verdict" id="verdict"></div>
+
+    <div class="agentpanel">
+      <h3>Connect via Your Agent — Binance App Pairing</h3>
+      <p class="hint">Agentic Wallets pair with an <b>AI agent</b>, not a web page — the same way every
+      Binance Agent ID project works. Your agent generates the pairing, you confirm it in the Binance app,
+      and your agent verifies your ID on-chain.</p>
+      <ol class="steps">
+        <li><span>Copy the prompt below and give it to <b>your AI agent</b> (it needs the Binance Agentic Wallet skill).</span></li>
+        <li><span>Your agent shows you a <b>pairing code</b> — confirm it in your <b>Binance app</b>.</span></li>
+        <li><span>Your agent reads your wallet and <b>verifies your Agent ID</b> against the .ai registry, then reports back.</span></li>
+      </ol>
+      <div class="promptbox" id="promptBox">Read https://agent-passport-id.vercel.app/skill.md and connect my Binance Agentic Wallet, then verify my Agent Passport identity.</div>
+      <div class="copyrow">
+        <button class="ghostbtn" id="copyPromptBtn" type="button">COPY PROMPT FOR YOUR AGENT</button>
+        <a class="ghostbtn" style="text-decoration:none;display:inline-flex;align-items:center" href="skill.md" target="_blank" rel="noopener">READ THE SKILL.MD</a>
+      </div>
+    </div>
   </div>
 
   <section id="founder">
@@ -234,6 +251,12 @@ function render() {
   </footer>`;
 
   $("connectBtn").addEventListener("click", connect);
+  $("copyPromptBtn").addEventListener("click", async () => {
+    const btn = $("copyPromptBtn");
+    try { await navigator.clipboard.writeText($("promptBox").textContent.trim()); btn.textContent = "✓ PROMPT COPIED"; }
+    catch { btn.textContent = "COPY FAILED — LONG-PRESS THE TEXT"; }
+    setTimeout(() => (btn.textContent = "COPY PROMPT FOR YOUR AGENT"), 2200);
+  });
   $("addrForm").addEventListener("submit", e => { e.preventDefault(); verify($("addrInput").value); });
   $("founderBtn").addEventListener("click", () => { $("addrInput").value = FOUNDER.address; verify(FOUNDER.address); });
   if (window.ethereum && window.ethereum.on) {

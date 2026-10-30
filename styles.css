@@ -117,4 +117,16 @@ footer .fine{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color
 .rv.in{opacity:1;transform:none}
 .stamp.rv.in:nth-child(odd){transform:rotate(-.5deg)} .stamp.rv.in:nth-child(even){transform:rotate(.45deg)}
 .stamp.rv.in:hover{transform:rotate(0) translateY(-4px)}
+/* agent pairing panel */
+.agentpanel{margin-top:26px;border-top:1px dashed var(--gold-dim);padding-top:22px}
+.agentpanel h3{font-family:var(--serif);font-weight:650;font-size:20px}
+.agentpanel .hint{margin-top:5px}
+.steps{margin:14px 0 4px;display:grid;gap:8px;counter-reset:st}
+.steps li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:14px;line-height:1.5}
+.steps li::before{counter-increment:st;content:counter(st);flex:none;width:23px;height:23px;border-radius:50%;
+  border:1px solid var(--gold-dim);color:var(--gold2);font-family:var(--mono);font-size:11.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.steps b{color:var(--ink)}
+.promptbox{margin-top:14px;background:#0a0a10;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  font-family:var(--mono);font-size:12.8px;line-height:1.65;color:var(--ink);word-break:break-word}
+.copyrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
 @media (max-width:640px){.dapp{padding:21px}.passcard{padding:19px 17px 0}.mrz{margin:19px -17px 0;padding:11px 17px 13px}.hero{padding-top:38px}}
